@@ -9,228 +9,177 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool dialog = false;
   @override
   Widget build(BuildContext context) {
     final mQ = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "BOOK YOUR RIDE",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.1,
+        iconTheme: IconThemeData(
+          color: Color(0xff7bf534),
+        ),
+      ),
       drawer: Mydrawer(),
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          ListView(
+          Container(
+            color: Colors.black26,
+            height: mQ.height * 1,
+            width: mQ.width * 1,
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Container(
-                alignment: Alignment.centerLeft,
-                height: mQ.height * 0.2,
-                color: Colors.green[50],
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 10, right: 30, left: 10, bottom: 10),
-                        child: Text(
-                          "Sign up now",
-                          style: TextStyle(
-                            color: Color(0xff303030),
-                            fontSize: 36,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w700,
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Card(
+                  elevation: 3,
+                  child: Container(
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: Icon(
+                            Icons.location_pin,
+                            color: Color(0xff7bf534),
+                          ),
+                          title: Text(
+                            "2nd ave, World Trade Center, New York",
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                        child: Text(
-                          "Enter requested information",
-                          style: TextStyle(
-                            color: Color(0xff303030),
-                            fontSize: 12,
-                            fontFamily: 'Poppins',
+                        ListTile(
+                          leading: Icon(
+                            Icons.directions,
+                            color: Color(0xff7bf534),
+                          ),
+                          title: Text(
+                            "1124, Golden Point Street, New York",
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 70),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Text(
-                      "Phone Number",
-                      style: TextStyle(
-                        color: Color(0xff303030),
-                        fontSize: 12,
-                        fontFamily: 'Poppins',
-                      ),
+              Column(
+                children: [
+                  Container(
+                    width: mQ.width * 1,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
                     ),
-                    SizedBox(height: 10),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Center(
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                          flex: 2,
-                          child: TextField(
-                            autofocus: true,
-                            decoration: InputDecoration(
-                              hintText: "Phone Number",
-                              hintStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xff303030),
-                                fontSize: 12,
-                                fontFamily: 'Poppins',
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40.00),
+                          child: Text("Select Payment Mode"),
+                        ),
+                        Container(
+                          width: 150,
+                          child: ListTile(
+                            onTap: () {
+                              setState(() {
+                                dialog = !dialog;
+                              });
+                            },
+                            horizontalTitleGap: 0,
+                            leading: Icon(
+                              Icons.wallet_giftcard,
+                              color: Color(0xff7bf534),
+                            ),
+                            title: Text(
+                              "Wallet",
+                              style: TextStyle(
+                                color: Color(0xff7bf534),
                               ),
                             ),
-                            onSubmitted: (e) {},
-                            keyboardType: TextInputType.number,
-                          )),
-                    ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ),
-              SizedBox(
-                height: mQ.height * 0.02,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Text(
-                      "Full Name",
+                  Container(
+                    alignment: Alignment.center,
+                    width: mQ.width * 1,
+                    height: 50,
+                    color: Color(0x857bf534),
+                    child: Text(
+                      "CONTINUE",
                       style: TextStyle(
-                        color: Color(0xff303030),
-                        fontSize: 12,
-                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Center(
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                          flex: 2,
-                          child: TextField(
-                            autofocus: true,
-                            decoration: InputDecoration(
-                              hintText: "Enter Name",
-                              hintStyle: TextStyle(
-                                color: Color(0xff303030),
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Poppins',
-                              ),
-                            ),
-                            onSubmitted: (e) {},
-                            keyboardType: TextInputType.number,
-                          )),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: mQ.height * 0.02,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Text(
-                      "Email Address",
-                      style: TextStyle(
-                        color: Color(0xff303030),
-                        fontSize: 12,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Center(
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                          flex: 2,
-                          child: TextField(
-                            autofocus: true,
-                            decoration: InputDecoration(
-                              hintText: "Enter Email",
-                              hintStyle: TextStyle(
-                                color: Color(0xff303030),
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Poppins',
-                              ),
-                            ),
-                            onSubmitted: (e) {},
-                            keyboardType: TextInputType.number,
-                          )),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: mQ.height * 0.1,
-              ),
+                  )
+                ],
+              )
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: mQ.height * 0.92),
-            width: double.maxFinite,
-            height: mQ.height * 0.08,
-            child: Expanded(
-              child: Container(
-                alignment: Alignment.center,
-                color: Colors.lightGreen,
-                child: Text(
-                  "Sign Up",
-                  style: TextStyle(
-                    fontSize: 30,
+            margin: EdgeInsets.only(left: 210, top: 510),
+            child: Visibility(
+              visible: dialog,
+              child: Card(
+                elevation: 5,
+                child: Container(
+                  decoration: BoxDecoration(
                     color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 150,
+                        child: ListTile(
+                          horizontalTitleGap: 0,
+                          leading: Icon(
+                            Icons.money,
+                            color: Color(0xff7bf534),
+                          ),
+                          title: Text(
+                            "Cash",
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 150,
+                        child: ListTile(
+                          horizontalTitleGap: 0,
+                          leading: Icon(
+                            Icons.wallet_giftcard,
+                            color: Color(0xff7bf534),
+                          ),
+                          title: Text(
+                            "Wallet",
+                            style: TextStyle(
+                              color: Color(0xff7bf534),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).pushNamed(HomeScreen.routeName);
-            },
-            child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.lightGreen,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                margin: EdgeInsets.only(top: 170, left: 30),
-                height: 80,
-                width: 80,
-                child: Icon(
-                  Icons.camera_alt,
-                  color: Colors.white,
-                )),
           ),
         ],
       ),

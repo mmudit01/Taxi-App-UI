@@ -103,9 +103,7 @@ class _OtpPageState extends State<OtpPage> {
                         fontFamily: 'Poppins',
                       ),
                     ),
-                    onSubmitted: (e) {
-                      Navigator.of(context).pushNamed(Builders.routeName);
-                    },
+                    onSubmitted: (e) {},
                     keyboardType: TextInputType.phone,
                   ),
                 ),
@@ -122,15 +120,20 @@ class _OtpPageState extends State<OtpPage> {
                     children: [
                       Expanded(
                         flex: 1,
-                        child: Container(
-                          alignment: Alignment.center,
-                          color: Color(0xffF9DC3A),
-                          child: Text(
-                            "CONTINUE",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pushNamed(Builders.routeName);
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            color: Color(0xffF9DC3A),
+                            child: Text(
+                              "CONTINUE",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),

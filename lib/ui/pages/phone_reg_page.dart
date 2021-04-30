@@ -113,15 +113,20 @@ class _PhoneRegPageState extends State<PhoneRegPage> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
-                        child: Container(
-                          alignment: Alignment.center,
-                          color: Color(0xffF9DC3A),
-                          child: Text(
-                            "SIGN IN",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pushNamed(OtpPage.routeName);
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            color: Color(0xffF9DC3A),
+                            child: Text(
+                              "SIGN IN",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),

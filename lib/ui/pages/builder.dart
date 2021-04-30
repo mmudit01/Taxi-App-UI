@@ -228,17 +228,22 @@ class _BuildersState extends State<Builders> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 40),
-              child: Container(
-                height: mQ.height * 0.05,
-                width: mQ.width * 0.3,
-                alignment: Alignment.center,
-                color: Color(0xffF9DC3A),
-                child: Text(
-                  "SIGN UP",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed(HomeScreen.routeName);
+                },
+                child: Container(
+                  height: mQ.height * 0.05,
+                  width: mQ.width * 0.3,
+                  alignment: Alignment.center,
+                  color: Color(0xffF9DC3A),
+                  child: Text(
+                    "SIGN UP",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
