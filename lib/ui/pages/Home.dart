@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Drawer.dart';
+import 'homeCab.dart';
 
 class HomeScreen extends StatefulWidget {
   static final routeName = "home-page";
@@ -111,17 +112,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: mQ.width * 1,
-                    height: 50,
-                    color: Color(0x857bf534),
-                    child: Text(
-                      "CONTINUE",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(HomeCabScreen.routeName);
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: mQ.width * 1,
+                      height: 50,
+                      color: Color(0x857bf534),
+                      child: Text(
+                        "CONTINUE",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   )

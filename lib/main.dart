@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'ui/pages/homeCab.dart';
+import 'ui/pages/homeDrivers.dart';
 import 'ui/pages/otp_page.dart';
 import 'ui/pages/phone_reg_page.dart';
 
@@ -19,6 +21,8 @@ class MyApp extends StatelessWidget {
         OtpPage.routeName: (context) => OtpPage(),
         Builders.routeName: (context) => Builders(),
         HomeScreen.routeName: (context) => HomeScreen(),
+        HomeCabScreen.routeName: (context) => HomeCabScreen(),
+        HomeDriverScreen.routeName: (context) => HomeDriverScreen(),
       },
     );
   }
