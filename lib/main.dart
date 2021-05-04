@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ui/pages/FinishRide.dart';
 import 'ui/pages/homeCab.dart';
 import 'ui/pages/homeDrivers.dart';
 import 'ui/pages/otp_page.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => HomeScreen(),
         HomeCabScreen.routeName: (context) => HomeCabScreen(),
         HomeDriverScreen.routeName: (context) => HomeDriverScreen(),
+        RideComplete.routeName: (context) => RideComplete(),
       },
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Drawer.dart';
+import 'FinishRide.dart';
 
 class HomeDriverScreen extends StatefulWidget {
   static final routeName = "home-Driver-page";
@@ -227,29 +228,35 @@ class _HomeDriverScreenState extends State<HomeDriverScreen> {
                               ),
                             ),
                           ),
-                          Container(
-                            alignment: Alignment.center,
-                            width: 120,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.lime[100],
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15.0,
-                                vertical: 3,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(RideComplete.routeName);
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 120,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: Colors.lime[100],
+                                borderRadius: BorderRadius.circular(25),
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.arrow_circle_up,
-                                    color: Color(0xff7bf534),
-                                  ),
-                                  SizedBox(width: 5),
-                                  Text("More")
-                                ],
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 15.0,
+                                  vertical: 3,
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.arrow_circle_up,
+                                      color: Color(0xff7bf534),
+                                    ),
+                                    SizedBox(width: 5),
+                                    Text("More")
+                                  ],
+                                ),
                               ),
                             ),
                           ),
